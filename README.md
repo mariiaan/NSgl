@@ -8,6 +8,9 @@ Tested on firebird-emu and TI-Nspire CX II-T CAS
 # Future plans
 - Window + console framework
 
+# Warning
+- My first plain C project (no plain C experience yet)
+
 # License
 Licensed under MIT license
 
