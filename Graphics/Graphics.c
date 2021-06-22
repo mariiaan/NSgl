@@ -26,9 +26,9 @@ void Graphics_fillRect_RGB(int x, int y, int w, int h, uint8_t r, uint8_t g, uin
 
 void Graphics_fillRect_Color(int x, int y, int w, int h, unsigned short color)
 {
-    for(int ix = x; ix < x + w; ix++) /* Iterate through each pixel and set corresponding color */
+    for(int ix = x; ix < x + w; ++ix) /* Iterate through each pixel and set corresponding color */
     {
-        for(int iy = y; iy < y + h; iy++)
+        for(int iy = y; iy < y + h; ++iy)
         {
             Display_setPixel_Color(ix, iy, color);
         }
@@ -44,21 +44,21 @@ void Graphics_drawRect_RGB(int x, int y, int w, int h, int t, uint8_t r, uint8_t
 
 void Graphics_drawRect_Color(int x, int y, int w, int h, int t, unsigned short color)
 {
-    for(int ix = x; ix < x + w; ix++)                   /* Draw horizontal lines */
+    for(int ix = x; ix < x + w; ++ix)                   /* Draw horizontal lines */
     {  
-        for(int iy = y; iy < y + t; iy++)               /* Draw top line */
+        for(int iy = y; iy < y + t; ++iy)               /* Draw top line */
             Display_setPixel_Color(ix, iy, color);     
         
-        for(int iy = y + h - 1; iy >= y + h - t; iy--)  /* Draw bottom line */
+        for(int iy = y + h - 1; iy >= y + h - t; --iy)  /* Draw bottom line */
             Display_setPixel_Color(ix, iy, color);
     }
     
-    for(int iy = y; iy < y + h; iy++)                   /* Draw vertical lines */
+    for(int iy = y; iy < y + h; ++iy)                   /* Draw vertical lines */
     {
-        for(int ix = x; ix < x + t; ix++)               /* Draw left line */
+        for(int ix = x; ix < x + t; ++ix)               /* Draw left line */
             Display_setPixel_Color(ix, iy, color); 
         
-        for(int ix = x + w - 1; ix >= x + w - t; ix--)  /* Draw right line */
+        for(int ix = x + w - 1; ix >= x + w - t; --ix)  /* Draw right line */
             Display_setPixel_Color(ix, iy, color); 
     }
 }
@@ -116,9 +116,9 @@ void Graphics_drawCharacter_Color(int x, int y, const char c, unsigned short col
 
     if(m_graphics_background_transparent)
     {  
-        for(int ix = 0; ix < m_graphics_font_width; ix++)
+        for(int ix = 0; ix < m_graphics_font_width; ++ix)
         {
-            for(int iy = 0; iy < m_graphics_font_height; iy++)
+            for(int iy = 0; iy < m_graphics_font_height; ++iy)
             {
                 if(charToDraw[iy * m_graphics_font_width + ix] == 'x')
                 {
@@ -129,9 +129,9 @@ void Graphics_drawCharacter_Color(int x, int y, const char c, unsigned short col
     }
     else
     {
-        for(int ix = 0; ix < m_graphics_font_width; ix++)
+        for(int ix = 0; ix < m_graphics_font_width; ++ix)
         {
-            for(int iy = 0; iy < m_graphics_font_height; iy++)
+            for(int iy = 0; iy < m_graphics_font_height; ++iy)
             {
                 if(charToDraw[iy * m_graphics_font_width + ix] == 'x')
                 {
